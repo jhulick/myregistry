@@ -39,3 +39,16 @@ spring:
     application:
         name: max-registry
 
+# In order to enable encryption and decryption of config property files, you need to install
+# the unlimited strength Java Cryptography Extension (JCE) in your config server environment.
+# This doesn’t come with the JVM by default.
+#
+# A better approach would be to use environment variables. The location property is probably
+# safe in the application.yml file, but you could also control it with an environment variable.
+encrypt:
+    keyStore:
+        location: classpath:/server.jks
+        password: letmein
+        alias: mytestkey
+        secret: changeme
+
