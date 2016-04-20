@@ -9,6 +9,7 @@ import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import gov.max.microservices.registry.dashboard.config.EnableDashboard;
 import gov.max.microservices.registry.config.Constants;
 
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ import org.springframework.core.env.SimpleCommandLinePropertySource;
 @SpringBootApplication
 @EnableEurekaServer
 @EnableConfigServer
+@EnableDashboard
 public class MaxRegistry {
 
     private static final Logger log = LoggerFactory.getLogger(MaxRegistry.class);

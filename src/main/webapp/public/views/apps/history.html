@@ -1,0 +1,31 @@
+<h3>
+    Registry
+    <small>Service Registration History</small>
+</h3>
+<!-- First category table-->
+<div class="panel panel-default">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 50%" class="h4">Date</th>
+            <th class="h4 text-center hidden-xs hidden-sm">Instance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="instance in registered">
+            <td>
+                <!--<h4>-->
+                    <!--<a ui-sref="app.forum-topics({catid: 123})">-->
+                        <!--<strong>Welcome</strong>-->
+                    <!--</a>-->
+                <!--</h4>-->
+                <div class="text-muted">{{ instance.date | date : 'short' }}</div>
+            </td>
+            <td class="text-muted text-center hidden-xs hidden-sm">
+                <strong>{{ instance.id }}</strong>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -17,6 +17,13 @@
         <version>Brixton.BUILD-SNAPSHOT</version>
     </parent>
 
+    <!--parent>
+        <groupId>max-cloud-example</groupId>
+        <artifactId>microservices-example</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent-->
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -34,6 +41,11 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-rsa</artifactId>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.github.vanroy</groupId>-->
+            <!--<artifactId>spring-cloud-dashboard</artifactId>-->
+            <!--<version>1.0.0.RELEASE</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>io.spring.gradle</groupId>
             <artifactId>dependency-management-plugin</artifactId>
@@ -52,6 +64,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
