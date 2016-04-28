@@ -43,6 +43,11 @@ eureka:
 spring:
     application:
         name: max-registry
+    http:
+        encoding:
+            charset: UTF-8 # the encoding of HTTP requests/responses
+            enabled: true # enable http encoding support
+            force: true # force the configured encoding
 
 # In order to enable encryption and decryption of config property files, you need to install
 # the unlimited strength Java Cryptography Extension (JCE) in your config server environment.

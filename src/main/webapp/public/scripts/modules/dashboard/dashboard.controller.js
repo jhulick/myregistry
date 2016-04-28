@@ -35,6 +35,7 @@
         $scope.selectApp = function (name) {
             $scope.selectedAppName = name;
             $scope.selectedApp = $scope.findApp(name);
+            $rootScope.selectedApp = $scope.selectedApp;
             if (angular.isDefined($scope.selectedApp)) {
                 ApplicationOverview.getCircuitBreakerInfo($scope.selectedApp);
                 $scope.selectedApp.active = true;
@@ -117,7 +118,7 @@
             return function (key, x, y, e, graph) {
                 return '<b>' + key + '</b> ' + e.point[0] + ': ' + e.point[1];
             }
-        }
+        };
 
         //////// end metrics functions ////////////
 

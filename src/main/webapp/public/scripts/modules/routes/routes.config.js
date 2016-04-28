@@ -19,9 +19,9 @@
         // defaults to dashboard
         $urlRouterProvider.otherwise('/app/dashboard');
 
-        //
+        // --------------------
         // Application Routes
-        // -----------------------------------
+        // --------------------
         $stateProvider
             .state('app', {
                 url: '/app',
@@ -33,34 +33,31 @@
                 url: '/dashboard',
                 title: 'Applications',
                 controller: 'DashboardController',
-                templateUrl: helper.basepath('dashboard.html'),
-                resolve: helper.resolveFor('flot-chart', 'flot-chart-plugins', 'vector-map', 'vector-map-maps')
-            }).state('app.registry', {
+                templateUrl: helper.basepath('dashboard.html')
+            })
+            .state('app.dashboard.select', {
+                url: '/selected/:id',
+                title: 'Applications',
+                controller: 'SelectController',
+                templateUrl: helper.basepath('dashboard.selected.html')
+            })
+            .state('app.registry', {
                 url: '/registry',
                 title: 'Registry',
                 controller: 'HistoryController',
                 templateUrl: helper.basepath('apps/history.html')
             })
             .state('app.details', {
-                url: '/details',
+                url: '/details/:id',
                 controller: 'DetailsController',
                 templateUrl: helper.basepath('apps/details.html')
             })
-
-
             .state('app.navtree', {
                 url: '/navtree',
                 title: 'Nav Tree',
                 templateUrl: helper.basepath('nav-tree.html'),
                 resolve: helper.resolveFor('angularBootstrapNavTree')
             })
-            .state('app.nestable', {
-                url: '/nestable',
-                title: 'Nestable',
-                templateUrl: helper.basepath('nestable.html'),
-                resolve: helper.resolveFor('ng-nestable')
-            })
-
             .state('app.profile', {
                 url: '/profile',
                 title: 'Profile',
@@ -81,9 +78,6 @@
                 templateUrl: helper.basepath('documentation.html'),
                 resolve: helper.resolveFor('flatdoc')
             })
-
-
-
             .state('app.history', {
                 url: '/history',
                 templateUrl: 'views/apps/history.html',
@@ -130,42 +124,6 @@
                 templateUrl: 'views/apps/threads.html',
                 controller: 'threadsCtrl'
             })
-
-
-            //
-            // Single Page Routes
-            // -----------------------------------
-            .state('page', {
-                url: '/page',
-                templateUrl: 'pages/page.html',
-                resolve: helper.resolveFor('modernizr', 'icons'),
-                controller: ['$rootScope', function ($rootScope) {
-                    $rootScope.app.layout.isBoxed = false;
-                }]
-            })
-            .state('page.404', {
-                url: '/404',
-                title: 'Not Found',
-                templateUrl: 'pages/404.html'
-            })
-            //
-            // Horizontal layout
-            // -----------------------------------
-            .state('app-h', {
-                url: '/app-h',
-                abstract: true,
-                templateUrl: helper.basepath('app-h.html'),
-                resolve: helper.resolveFor('fastclick', 'modernizr', 'icons', 'screenfull', 'animo', 'sparklines', 'slimscroll', 'classyloader', 'toaster', 'whirl')
-            })
-            .state('app-h.dashboard_v2', {
-                url: '/dashboard_v2',
-                title: 'Dashboard v2',
-                templateUrl: helper.basepath('dashboard_v2.html'),
-                controller: 'DashboardV2Controller',
-                controllerAs: 'dash2',
-                resolve: helper.resolveFor('flot-chart', 'flot-chart-plugins')
-            });
-
     } // routesConfig
 
 })();

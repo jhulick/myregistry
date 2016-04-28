@@ -19,18 +19,6 @@
         "translate": "sidebar.nav.REGISTRY"
     },
     {
-        "text": "Charts",
-        "sref": "#",
-        "icon": "icon-graph",
-        "submenu": [
-            {
-                "text": "Chart NVD3",
-                "sref": "app.chart-nvd3"
-            }
-        ],
-        "translate": "sidebar.nav.chart.CHART"
-    },
-    {
         "text": "Documentation",
         "sref": "app.documentation",
         "icon": "icon-graduation",

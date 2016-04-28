@@ -1,0 +1,59 @@
+<div class="col-md-8">
+    <!-- START panel tab-->
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!--<uib-tab-heading>-->
+            <!--<em class="fa fa-clock-o fa-fw"></em>Applications Panel-->
+            <!--</uib-tab-heading>-->
+            <div class="panel-heading">
+                <!--<div class="pull-right label label-danger">5</div>-->
+                <!--<div class="pull-right label label-success">12</div>-->
+                <div class="panel-title">Application Details</div>
+            </div>
+
+            <div>
+                <!-- START Applicationslist group-->
+                <div ng-show="selectedApp">
+                    <span class="h3 pull-left" style="margin-bottom: 0px;margin-top: 8px;">{{selectedApp.name}}</span>
+                    <div class="pull-right">
+                        <a class="btn btn-sm btn-success"
+                           ui-sref="app.circuit-breaker({type: 'app', id: selectedApp.name})"
+                           ng-disabled="selectedApp.circuitBreaker !== true">Circuit breakers</a>
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Instance</th>
+                            <th>Version</th>
+                            <th>Info</th>
+                            <th>Status</th>
+                            <th colspan="2">Health</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="instance in selectedApp.instances track by instance.id">
+                            <td>{{ instance.name }}<br/><span class="muted">{{ instance.url }}</span></td>
+                            <td>{{ instance.version }}</td>
+                            <td><span
+                                ng-repeat="(name, value) in instance.info track by name">{{name}}: {{value}}<br></span>
+                            </td>
+                            <td><span class="status-{{instance.status}}">{{ instance.status }}</span>
+                                <span ng-show="instance.refreshing" class="refresh"></span></td>
+                            <td><span class="status-{{instance.health}}">{{ instance.health }}</span></td>
+                            <td>
+                                <div class="btn-group pull-right"
+                                     ng-hide="instance.status == null || instance.status == 'DOWN' || instance.status == 'OUT_OF_SERVICE' || instance.health == 'OFFLINE'">
+                                    <a ui-sref="app.details({id: instance.id})" class="btn btn-success">Details</a>
+                                    <!--<a ui-sref="apps.logging({id: instance.id})" class="btn btn-success">Logging</a>-->
+                                    <!--<a ui-sref="apps.jmx({id: instance.id})" class="btn btn-success">JMX</a>-->
+                                    <!--<a ui-sref="apps.threads({id: instance.id})" class="btn btn-success">Threads</a>-->
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

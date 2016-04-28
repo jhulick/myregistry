@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 <html lang="en" data-ng-app="registry">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="description" content="{{app.description}}">
         <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
+        <meta charset='utf-8'>
         <title data-ng-bind="::pageTitle()">MAX Registry</title>
         <!-- Bootstrap styles-->
         <link rel="stylesheet" href="css/bootstrap.css" data-ng-if="!app.layout.isRTL">
@@ -49,6 +49,7 @@
         <script src="bower_components/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
         <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
         <script src="bower_components/jquery.inputmask/dist/jquery.inputmask.bundle.js"></script>
+        <script src="bower_components/flatdoc/legacy.js"></script>
         <script src="bower_components/flatdoc/flatdoc.js"></script>
         <script src="bower_components/angularjs-toaster/toaster.js"></script>
         <script src="bower_components/chosen_v1.2.0/chosen.jquery.min.js"></script>
@@ -121,14 +122,12 @@
         <script src="scripts/modules/settings/settings.run.js"></script>
 
         <script src="scripts/modules/dashboard/dashboard.module.js"></script>
-        <script src="scripts/modules/dashboard/controllers.js"></script>
         <script src="scripts/modules/dashboard/services.js"></script>
         <script src="scripts/modules/dashboard/filters.js"></script>
         <script src="scripts/modules/dashboard/circuit-breaker.js"></script>
         <script src="scripts/modules/dashboard/dashboard.controller.js"></script>
+        <script src="scripts/modules/dashboard/dashboard.select.controller.js"></script>
         <script src="scripts/modules/dashboard/history.controller.js"></script>
-        <script src="scripts/modules/dashboard/dashboard.v2.controller.js"></script>
-        <script src="scripts/modules/dashboard/dashboard.v3.controller.js"></script>
         <script src="scripts/modules/dashboard/dashboard.details.controller.js"></script>
         <script src="scripts/modules/dashboard/dashboard.metrics.controller.js"></script>
         <script src="scripts/modules/dashboard/dashboard.properties.controller.js"></script>

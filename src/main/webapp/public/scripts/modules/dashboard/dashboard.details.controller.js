@@ -7,16 +7,17 @@
 
     DetailsController.$inject = [
         '$scope',
-        '$interval',
         '$rootScope',
+        '$interval',
+        'Instance',
         'InstanceDetails',
         'Abbreviator',
         'MetricsHelper',
         '$q'
     ];
 
-    function DetailsController($scope, $interval, $rootScope, InstanceDetails, Abbreviator, MetricsHelper, $q) {
-        var instance = $rootScope.instance;
+    function DetailsController($scope, $rootScope, $interval, instance, InstanceDetails, Abbreviator, MetricsHelper, $q) {
+        var instance = $rootScope.selectedApp.instances[0];
         $scope.memoryData = [];
         $scope.heapMemoryData = [];
         $scope.counterData = [];
