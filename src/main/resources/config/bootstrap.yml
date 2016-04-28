@@ -1,21 +1,17 @@
 server:
     port: 8761
-
 info:
     name: "Registry Service"
 
 spring:
     application:
-        name: max-registry
-#  profiles:
-#    active: native  # For local file repository only
+        name: eureka
     cloud:
         config:
-            enabled: true
+            enabled: false
             server:
                 native:
                     searchLocations: classpath:/gov/max/microservices/config
-
 #                    search-locations: file:./config-repo
 #                git:
 #                    uri: https://github.com/jhulick/config-repo
